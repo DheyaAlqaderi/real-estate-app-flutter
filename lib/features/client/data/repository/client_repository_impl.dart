@@ -1,4 +1,5 @@
 
+import 'package:smart_realestate/features/client/data/models/login/request_login_model.dart';
 import 'package:smart_realestate/features/client/data/models/login/response_login_model.dart';
 import 'package:smart_realestate/features/client/data/sources/remote/api_service.dart';
 import 'package:smart_realestate/features/client/domain/repository/client_repository.dart';
@@ -10,9 +11,9 @@ class ClientRepositoryImpl implements ClientRepository{
   ClientRepositoryImpl(this._apiService);
 
   @override
-  Future<ResponseLoginModel> login(String email, String password) async{
+  Future<ResponseLoginModel> login(RequestLoginModel requestLoginModel) async{
     try{
-      final response = await _apiService.login(email, password);
+      final response = await _apiService.login(requestLoginModel);
       return response;
     } catch(e){
       throw Exception("$e");

@@ -16,7 +16,7 @@ class LoginUseCase extends UseCase<ResponseLoginModel,RequestLoginModel>{
       throw ArgumentError('params must not be null');
     }
 
-    return _clientRepository.login(params.email, params.password);
+    return _clientRepository.login(params);
 
   }
 
